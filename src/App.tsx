@@ -3,6 +3,7 @@ import StakeButton from './components/Button/StakeButton';
 import StakeInfo from './components/Button/StakeInfo';
 import UnlockStake from './components/Button/Unlock';
 import TextField from './components/TextField/Textfield';
+import { Uint256 } from 'web3';
 import './App.css';
 
 
