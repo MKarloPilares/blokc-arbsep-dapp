@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MintButton from './components/Button/MintButton';
 import StakeButton from './components/Button/StakeButton';
 import StakeInfo from './components/Button/StakeInfo';
 import UnlockStake from './components/Button/Unlock';
@@ -69,11 +70,12 @@ const handleChangeDuration = (value: Uint256) => {
      <h1>Pilares Coin Generator</h1>
        <p>
          ETH wallet connected as: {ethereumAccount}
-         <TextField value={Stake} onChange={handleChangeStake} placeholder='Amount of Stake in wei' />
-         <TextField value={Duration} onChange={handleChangeDuration} placeholder='Duration of Stake in days' />
-         <StakeButton contractAddress="0x5beE2Ee6b8E359E83959Fa7528274865f6454B5d" account={ethereumAccount} StakeAmount={Stake} Duration={Duration}/>
-         <StakeInfo contractAddress="0x5beE2Ee6b8E359E83959Fa7528274865f6454B5d" account={ethereumAccount}/>
-         <UnlockStake contractAddress="0x5beE2Ee6b8E359E83959Fa7528274865f6454B5d" account={ethereumAccount}/>
+         <TextField value={Stake} onChange={handleChangeStake} placeholder='Amount of Stake' />
+         <TextField value={Duration} onChange={handleChangeDuration} placeholder='Duration of Stake in seconds' />
+         <MintButton contractAddress="0x3ceE156aE0C0F254eb0Bab0124a1538B2c8b1c27" account={ethereumAccount}/>
+         <StakeButton contractAddress="0x3ceE156aE0C0F254eb0Bab0124a1538B2c8b1c27" account={ethereumAccount} StakeAmount={Stake} Duration={Duration}/>
+         <StakeInfo contractAddress="0x3ceE156aE0C0F254eb0Bab0124a1538B2c8b1c27" account={ethereumAccount}/>
+         <UnlockStake contractAddress="0x3ceE156aE0C0F254eb0Bab0124a1538B2c8b1c27" account={ethereumAccount}/>
        </p>
      </header>
    </div>

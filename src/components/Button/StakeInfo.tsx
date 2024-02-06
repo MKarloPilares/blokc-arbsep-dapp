@@ -33,7 +33,7 @@ const StakeInfo: React.FC<stakeInfoButtonProps> = ({contractAddress, account }) 
     <p>
       <button onClick={readStakeInfo}>Stake Info: {output}</button>
       <p>
-        Amount(Wei),Unlock Timestamp(Seconds since epoch),Result(Wei)
+        Amount,Unlock Timestamp(Seconds since epoch),Result
       </p>
     </p>
   );

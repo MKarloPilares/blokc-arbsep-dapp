@@ -20,13 +20,18 @@ contract PilaresCoin is ERC20  {
     event TokensStaked(address indexed staker, uint256 amount, uint256 unlockTimestamp);
     event TokensUnlocked(address indexed staker, uint256 amount);
 
+    //Function to mint token
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
+    }
+
     // Function to stake tokens with a specified lock duration
     function stakeTokens(uint256 amount, uint256 lockDurationInDays) external {
         require(amount > 0, "Amount must be greater than 0");
         require(balanceOf(msg.sender) >= amount, "Insufficient balance");
 
         // Lock the tokens for the specified duration
-        uint256 unlockTimestamp = block.timestamp + (lockDurationInDays * 1 days);
+        uint256 unlockTimestamp = block.timestamp + (lockDurationInDays * 1 seconds);
 
         //Computes result of staking
         uint256 stakeResult = amount+ (amount * lockDurationInDays);
@@ -51,7 +56,7 @@ contract PilaresCoin is ERC20  {
         delete stakingInfo[msg.sender];
 
         // Transfer tokens back to the staker
-        transfer(msg.sender, stakedResult);
+        _mint(msg.sender, stakedResult);
 
         emit TokensUnlocked(msg.sender, stakedResult);
     }
